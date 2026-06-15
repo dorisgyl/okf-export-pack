@@ -1,5 +1,9 @@
 # okf-export-pack
 
+<p align="center">
+  <img src="assets/okf-poster.png" alt="okf-export-pack — Knowledge that outlives the tool. Projects your NevoFlux GBrain into a conformant, vendor-neutral Open Knowledge Format (OKF) v0.1 bundle: plain Markdown, deterministic, privacy enforced in code." width="820">
+</p>
+
 A [NevoFlux](https://github.com/dorisgyl/nevoflux) pack (`pack-protocol/0.1`) that
 exports your GBrain knowledge as a conformant **Open Knowledge Format (OKF) v0.1**
 bundle — one of the first independent OKF producers outside Google.
