@@ -75,10 +75,27 @@ well-typed structure.
 
 ## Install
 
+### 1. Get the NevoFlux browser
+
+This pack runs inside the **NevoFlux** browser — install it first:
+
+- Download: <https://nevoflux.app>
+- Or grab a release build: <https://github.com/dorisgyl/nevoflux/releases>
+
+### 2. Install the pack
+
+Open the browser, go to **`nevoflux://settings` → Packs**, and install this pack
+(add it by its repository URL or a local `pack.toml`). NevoFlux handles install,
+update, and rollback transactionally from the manifest.
+
+<details>
+<summary>Prefer the CLI?</summary>
+
 ```bash
 nevoflux pack validate okf-export-pack/pack.toml
 nevoflux pack install  okf-export-pack/pack.toml
 ```
+</details>
 
 ## Usage
 
