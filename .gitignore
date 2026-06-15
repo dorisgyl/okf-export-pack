@@ -141,3 +141,11 @@ dist
 vite.config.js.timestamp-*
 vite.config.ts.timestamp-*
 .vite/
+
+# Claude Code
+CLAUDE.md
+
+docs/superpowers
+# thumbnail render temp
+.thumb-profile/
+.thumbtest/
