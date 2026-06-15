@@ -1,0 +1,22 @@
+name = "okf.build"
+description = "Deterministically serialize GBrain page JSON into a conformant OKF v0.1 bundle directory."
+kind = "command"
+binary = "python3"
+args_mode = "template"
+args = ["{{script}}", "--input", "{{input}}", "--output", "{{output}}"]
+
+[params.script]
+type = "path"
+allowed_prefix = "$SESSION_DIR"
+must_exist = true
+[params.input]
+type = "path"
+allowed_prefix = "$SESSION_DIR"
+must_exist = true
+[params.output]
+type = "path"
+allowed_prefix = "$SESSION_DIR"
+
+[constraints]
+timeout_seconds = 120
+cwd = "$SESSION_DIR"

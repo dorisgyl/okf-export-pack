@@ -1,0 +1,16 @@
+{
+  "bundle": {"okf_version": "0.1", "index_intro": "Tiny fixture bundle for serializer CI."},
+  "strip": {"frontmatter_whitelist": ["type","title","description","resource","tags","timestamp"],
+            "exclude_prefixes": ["private/", ".raw/"]},
+  "log": [{"date": "2026-06-14", "entries": [{"kind": "Creation", "text": "Initial fixture."}]}],
+  "pages": [
+    {"slug": "alpha", "type": "Spec", "title": "Alpha", "description": "First page.",
+     "resource": "https://example.com/alpha", "tags": ["x"], "timestamp": "2026-06-14T00:00:00Z",
+     "body": "Alpha links to [Beta](/beta.md).", "citations": [["src","https://example.com"]],
+     "extra": {"x-confidence": "high"}},
+    {"slug": "beta", "type": "Note", "title": "Beta", "description": "Second page.",
+     "resource": "https://example.com/beta", "tags": ["y"], "timestamp": "2026-06-14T00:00:00Z",
+     "body": "Beta links back to [Alpha](/alpha.md) and to a [missing page](/ghost.md)."},
+    {"slug": "private/secret", "type": "Note", "title": "Secret", "body": "should be stripped"}
+  ]
+}

@@ -1,0 +1,26 @@
+[pack]
+name = "okf-export-pack"
+version = "0.1.0"
+protocol = "pack-protocol/0.1"
+min_nevoflux = "0.3.0"
+description = "Export GBrain knowledge as a conformant Open Knowledge Format (OKF) bundle."
+license = "MIT"
+namespace = "okf"
+
+[components.skills]
+dir = "components/skills"
+
+[components.canvas_tools]
+files = [
+  "components/canvas-tools/okf-build.toml",
+  "components/canvas-tools/okf-pack.toml",
+]
+external_binaries = ["python3", "tar"]
+
+[[components.seed]]
+slug = "okf/export-config"
+from = "components/seed/export-config.template.md"
+
+[components.protected]
+slugs    = ["okf/export-config"]
+prefixes = ["okf/exports/"]
