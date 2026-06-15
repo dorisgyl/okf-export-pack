@@ -6,13 +6,16 @@ bundle — one of the first independent OKF producers outside Google.
 
 ## What is OKF?
 
-The **Open Knowledge Format** is an open, plain-text format for packaging
-structured knowledge so it can be shared between tools, teams, and vendors
-without lock-in. Everything is Markdown — readable as-is, diff-friendly, and
-ingestible by anything that reads files.
+The **Open Knowledge Format** is a universal, vendor-neutral format for
+representing knowledge as plain Markdown files with YAML frontmatter. It is
+designed so that *anyone* can produce it (people, agents, export pipelines) and
+*anything* can consume it (file servers, knowledge UIs, LLMs, search indexes,
+graph viewers) — with no SDK or proprietary API in between.
 
-Background & rationale (Google Cloud):
-<https://cloud.google.com/blog/products/data-analytics/how-the-open-knowledge-format-can-improve-data-sharing>
+- Spec & rationale:
+  <https://github.com/GoogleCloudPlatform/knowledge-catalog/blob/main/okf/README.md>
+- Background (Google Cloud):
+  <https://cloud.google.com/blog/products/data-analytics/how-the-open-knowledge-format-can-improve-data-sharing>
 
 An OKF **bundle** is a directory of Markdown files:
 
@@ -27,14 +30,23 @@ An OKF **bundle** is a directory of Markdown files:
 - **Extension keys** (e.g. `x-confidence`) are tolerated; unknown frontmatter is
   ignored by consumers.
 
-## Where OKF is useful
+## Why OKF?
 
-- **Portable knowledge sharing / handoff** — move a knowledge base between tools,
-  teams, or vendors as plain files, with no proprietary container.
-- **Publishing & archiving** — commit a bundle to git, or ship it as a single
-  archive; it stays human-readable forever.
-- **Feeding downstream consumers** — give RAG pipelines, wikis, or static-site
-  generators a predictable, well-typed structure to ingest.
+- **Human- and agent-readable** — no SDK or query language stands between a
+  reader and the content; it is just Markdown.
+- **Version-controllable out of the box** — bundles live in git, so line-by-line
+  diffs, blame, and pull-request review just work.
+- **Portable and lock-in free** — a bundle is a directory of files; no
+  proprietary API stands between you and your knowledge.
+- **Structured *and* unstructured, deliberately** — YAML frontmatter for
+  queryable fields, Markdown body for prose, in the same file.
+- **Graph-shaped, not just tree-shaped** — links express relationships across
+  the whole bundle, not only parent/child folders.
+
+Typical uses: cataloging metadata from data sources into browsable bundles,
+publishing or archiving a knowledge base as plain files, and feeding downstream
+consumers (RAG pipelines, wikis, static sites, graph viewers) a predictable,
+well-typed structure.
 
 ## What this pack does
 
