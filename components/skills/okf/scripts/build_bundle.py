@@ -122,10 +122,12 @@ def produce(data, outroot):
 def check(root):
     root = pathlib.Path(root)
     md = sorted(p for p in root.rglob("*.md"))
-    present = {str(p.relative_to(root)) for p in md}
+    # as_posix(): bundle links are forward-slash, so normalize paths to match on
+    # Windows too (str(...) would yield "a\b.md" and mis-report links as broken).
+    present = {p.relative_to(root).as_posix() for p in md}
     violations, types, broken = [], {}, []
     for p in md:
-        rel = str(p.relative_to(root))
+        rel = p.relative_to(root).as_posix()
         name = p.name
         text = p.read_text(encoding="utf-8")
         if name in RESERVED:                        # §6/§7/§11 structural checks

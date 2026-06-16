@@ -123,6 +123,37 @@ python3 components/skills/okf/scripts/build_bundle.py \
 python3 components/skills/okf/scripts/build_bundle.py --check-only /tmp/okf-out
 ```
 
+## Example bundle
+
+[`samples/nevoflux-okf-demo/`](samples/nevoflux-okf-demo/) is a real bundle that
+`okf-export` produced from a NevoFlux GBrain. Its subject is OKF *itself*: the
+spec, the [LLM-wiki pattern](samples/nevoflux-okf-demo/llm-wiki-pattern.md) it
+formalizes, the product it ships in, community conventions, practitioner
+reactions, the primary sources, and the surrounding tooling (this pack included).
+The cross-links between those files *are* the knowledge graph.
+
+```
+samples/nevoflux-okf-demo/
+├── index.md                  # table of contents (bundle root)
+├── log.md                    # dated change log
+├── okf-spec.md               # Spec
+├── llm-wiki-pattern.md       # Pattern
+├── knowledge-catalog.md      # Product
+├── okf-name-collisions.md    # Note
+├── conventions/              # Convention ×3 — llms.txt, AGENTS.md, EntityMap
+├── reactions/                # Reaction ×3 — practitioner takes
+├── references/               # Source + Reference — primary links
+└── tooling/                  # Tooling ×3 — producers & consumers
+```
+
+15 concepts across 9 `type`s, plus the reserved `index.md` and `log.md`. Validate
+it yourself — it passes clean:
+
+```bash
+python3 components/skills/okf/scripts/build_bundle.py --check-only samples/nevoflux-okf-demo
+# → conformant: true, violations: []
+```
+
 ## Conformance & conventions
 
 The rules this pack maps to and enforces live alongside the `okf` skill:
